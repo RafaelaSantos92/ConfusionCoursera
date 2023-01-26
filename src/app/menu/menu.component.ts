@@ -1,48 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Dish } from '../shared/dish';
-
-const DISHES: Dish[]=[
-  {
-    id: '0',
-    name: 'Pizza',
-    image: '/assets/images/uthappizza.png',
-    category: 'mains',
-    featured: true,
-    label: 'Hot',
-    price: '4.99',
-    description: 'uma combinação única de uthappam indiano (panqueca) e pizza italiana'
-  },
-  {
-    id: '1',
-    name: 'Zucchipakoda',
-    image: '/assets/images/zucchipakoda.png',
-    category: 'appetizer',
-    featured: false,
-    label: ' ',
-    price: '1.99',
-    description: 'abobrinha frita coberta com massa de farinha de grão-de-bico levemente temperada acompanhada de molho de tamarindo agridoce'
-  },
-  {
-    id: '2',
-    name: 'Vadonut',
-    image: '/assets/images/vadonut.png',
-    category: 'appetizer',
-    featured: false,
-    label: 'New',
-    price: '2.99',
-    description: 'uma experiência de confusão por excelência, é uma rosquinha ou é um donut?'
-  },
-  {
-    id: '3',
-    name: 'eElainCHeese cake',
-    image: '/assets/images/elaicheesecake.png',
-    category: 'dessert',
-    featured: false,
-    label: ' ',
-    price: '3.99',
-    description: 'um delicioso bolo de queijo semi-doce estilo nova-iorquino'
-  },
-]
+import { DISHES } from '../shared/dishes'
+  
 
 @Component({
   selector: 'app-menu',
@@ -51,13 +10,17 @@ const DISHES: Dish[]=[
 })
 export class MenuComponent implements OnInit {
 
-  dishes = DISHES;
+  dishes: Dish[] = DISHES;
 
-  selectedDish: Dish = DISHES[0];
+  selectedDish: Dish;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onSelect(dish: Dish){
+    this.selectedDish = dish;
   }
 
 }
