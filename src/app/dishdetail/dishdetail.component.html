@@ -1,0 +1,32 @@
+<div class="col-md-12 d-flex justify-content-center" >
+    
+        <div class="card mb-8" style="max-width:1000px;" *ngIf="dishes">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <h3 class="card-title col-md-12 d-flex justify-content-center">{{dishes.name | uppercase}}</h3>
+                <img class="col-md-12 d-flex justify-content-center" src="{{dishes.image}}" alt="{{dishes.name}}">
+                <p class="card-title col-md-12 d-flex justify-content-center">Descrição: {{dishes.description}}</p>
+                <button>LIKE</button>
+                <button>SHARE</button>
+
+       
+        </div>
+        <div class="detalhes col-md-8">
+            <div class="col-md-8" >
+                <h5 class="card-title align-content-center">Comentários:</h5>
+                <div class="card-body" *ngFor="let comment of dishes.comments">
+                  <p class="card-text">{{comment.comment}}</p>
+                  <p class="card-text">{{comment.rating}} stars</p>
+                  <p class="card-text">{{comment.author}}</p>
+                  <p class="card-text"><small class="text-muted">{{comment.date | date}}</small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+         
+
+
+</div>
+
+
